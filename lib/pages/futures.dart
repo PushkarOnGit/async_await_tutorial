@@ -1,3 +1,4 @@
+import 'package:async_await_tutorial/pages/second_page.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -16,6 +17,7 @@ class _FuturesState extends State<Futures> {
   @override
   void initState() {
     // getStudentDetails();
+    delayed();
     super.initState();
   }
 
@@ -50,6 +52,14 @@ class _FuturesState extends State<Futures> {
   //   }
   //   return res.body;
   // }
+
+  delayed() async {
+    await Future.delayed(Duration(seconds: 2), () {
+      Navigator.of(
+        context,
+      ).push(MaterialPageRoute(builder: (context) => SecondPage()));
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
