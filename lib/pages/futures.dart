@@ -15,7 +15,7 @@ class _FuturesState extends State<Futures> {
     super.initState();
   }
 
-  getStudentDetails() async {
+  Future<String> getStudentDetails() async {
     const url = "https://jsonplaceholder.typicode.com/users";
     // http
     //     .get(Uri.parse(url))
@@ -28,12 +28,16 @@ class _FuturesState extends State<Futures> {
       making the code redablity and understand difficult
     */
 
+    late http.Response res;
+
     try {
-      http.Response res = await http.get(Uri.parse(url));
+      res = await http.get(Uri.parse(url));
       print(res.body);
     } catch (error) {
       print(error.toString());
     }
+
+    return res.body;
   }
 
   @override
