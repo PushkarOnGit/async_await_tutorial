@@ -15,7 +15,7 @@ class _FuturesState extends State<Futures> {
     super.initState();
   }
 
-  getStudentDetails() {
+  getStudentDetails() async {
     const url = "https://jsonplaceholder.typicode.com/users";
     // http
     //     .get(Uri.parse(url))
@@ -27,6 +27,9 @@ class _FuturesState extends State<Futures> {
       Causes a lot of nesting in function of then 
       making the code redablity and understand difficult
     */
+
+    http.Response res = await http.get(Uri.parse(url));
+    print(res.body);
   }
 
   @override
