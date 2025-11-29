@@ -28,8 +28,12 @@ class _FuturesState extends State<Futures> {
       making the code redablity and understand difficult
     */
 
-    http.Response res = await http.get(Uri.parse(url));
-    print(res.body);
+    try {
+      http.Response res = await http.get(Uri.parse(url));
+      print(res.body);
+    } catch (error) {
+      print(error.toString());
+    }
   }
 
   @override
