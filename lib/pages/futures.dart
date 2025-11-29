@@ -17,8 +17,10 @@ class _FuturesState extends State<Futures> {
 
   getStudentDetails() {
     const url = "https://jsonplaceholder.typicode.com/users";
-    dynamic res = http.get(Uri.parse(url));
-    print(res);
+    http
+        .get(Uri.parse(url))
+        .then((value) => print(value.body))
+        .catchError((error) => print(error));
   }
 
   @override
