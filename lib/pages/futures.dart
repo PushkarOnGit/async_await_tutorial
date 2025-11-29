@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class Futures extends StatefulWidget {
   const Futures({super.key});
@@ -10,7 +11,14 @@ class Futures extends StatefulWidget {
 class _FuturesState extends State<Futures> {
   @override
   void initState() {
+    getStudentDetails();
     super.initState();
+  }
+
+  getStudentDetails() {
+    const url = "https://jsonplaceholder.typicode.com/users";
+    dynamic res = http.get(Uri.parse(url));
+    print(res);
   }
 
   @override
