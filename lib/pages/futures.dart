@@ -17,10 +17,16 @@ class _FuturesState extends State<Futures> {
 
   getStudentDetails() {
     const url = "https://jsonplaceholder.typicode.com/users";
-    http
-        .get(Uri.parse(url))
-        .then((value) => print(value.body))
-        .catchError((error) => print(error));
+    // http
+    //     .get(Uri.parse(url))
+    //     .then((value) => print(value.body))
+    //     .catchError((error) => print(error));
+
+    /*
+      This method is a bit ineffieicent 
+      Causes a lot of nesting in function of then 
+      making the code redablity and understand difficult
+    */
   }
 
   @override
